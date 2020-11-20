@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block head %}
+   
+<title>Wrap Time Predictor</title>
+    
+{% endblock %}
+
+{% block body %}
+
+<ul>
+	<li><a href="/">Home</a></li>
+	<li><a href="/prediction">Prediction AHT</a></li>
+ </ul>
+<div class="section">
+<video autoplay muted loop>
+	<source src= "{{url_for('static', filename='Call_center.mp4')}}" type='video/mp4'>
+ </video>
+</div>
+
+<div class="main">
+	<h1>Wrap-up Time Predictor</h1>
+	<form action="{{url_for('prediction')}}" method="POST">
+		<input type="number" name="AHT" placeholder="AHT" required="required" id="textbox1">
+		<input type="number" name="Experience" placeholder="Experience" required="required" id="textbox1">
+		<button type="submit" value="submit" id="button1">Submit</button>
+	</form>
+
+	<br>
+	<br>
+	{{prediction_text}}
+</div>
+
+{% endblock %}
